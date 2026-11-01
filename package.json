@@ -1,5 +1,5 @@
 {
-  "name": "wana-pangan-explorer",
+  "name": "wana-pangan",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,10 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "chart.js": "^4.6.1",
+    "lucide-react": "^1.66.0",
     "react": "^19.3.1",
-    "react-chartjs-2": "^5.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "recharts": "^3.10.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

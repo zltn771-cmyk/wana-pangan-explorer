@@ -1,0 +1,113 @@
+import type { Destination } from '@/types';
+
+const SIMULASI = true as const;
+
+export const destinations: Destination[] = [
+  {
+    id: 'batu-ampar',
+    name: 'Desa Batu Ampar',
+    desa: 'Batu Ampar',
+    kabupaten: 'Kepahiang',
+    description: 'Desa agroforestri dengan kebun kopi arabika di lereng pegunungan, lokasi uji coba wisata kebun hutan pertama di Kepahiang.',
+    longDescription: 'Desa Batu Ampar terletak di ketinggian 900–1.200 mdpl di Kabupaten Kepahiang. Desa ini merupakan lokasi uji coba wisata kebun hutan (Supardi, 2021) yang telah membuktikan potensi ekowisata agroforestri. Kebun kopi arabika milik warga berpadu dengan tanaman naungan, aren, dan berbagai tumbuhan pangan. Pengunjung dapat menikmati pengalaman langsung petik dan sangrai kopi bersama petani.',
+    image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80',
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80',
+      'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=800&q=80',
+    ],
+    activities: [
+      { id: 'petik-kopi', name: 'Petik Kopi Arabika', description: 'Ikut petani memanen buah kopi merah di lereng kebun agroforestri.', duration: '2 jam' },
+      { id: 'sangrai-kopi', name: 'Sangrai & Seduh Kopi', description: 'Proses sangrai tradisional dan menikmati seduhan kopi segar bersama petani.', duration: '1 jam' },
+      { id: 'sadap-nira', name: 'Sadap Nira Aren', description: 'Belajar teknik sadap nira aren tradisional yang tidak merusak pohon.', duration: '1,5 jam' },
+      { id: 'tanam-pohon', name: 'Tanam Pohon Pangan', description: 'Berkontribusi langsung menanam pohon pangan di kawasan agroforestri desa.', duration: '1 jam' },
+    ],
+    highlights: ['Pemandu lokal berpengalaman', 'Sarapan pagi khas desa', 'Sertifikat partisipasi konservasi', 'Oleh-oleh kopi gratis (100g)'],
+    capacity: 20,
+    duration: '1 hari (7 jam)',
+    price: 150000,
+    guideAvailable: true,
+    isSimulasi: SIMULASI,
+  },
+  {
+    id: 'belitar-seberang',
+    name: 'Desa Belitar Seberang',
+    desa: 'Belitar Seberang',
+    kabupaten: 'Rejang Lebong',
+    description: 'Desa penghasil aren dan kolang-kaling terbesar di Rejang Lebong dengan tradisi penyadapan nira yang kaya.',
+    longDescription: 'Belitar Seberang merupakan desa dengan ekosistem aren (Arenga pinnata) yang kaya di Kabupaten Rejang Lebong. Pohon aren tumbuh alami di hutan sekitar pemukiman dan menjadi sumber penghidupan utama masyarakat setelah kopi. Wisatawan dapat belajar seluruh rantai produksi gula aren: dari sadap nira di pohon, memasak gula di dapur komunal, hingga mencetak gula.',
+    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1571167366136-b57e37e6d2e5?w=800&q=80',
+      'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80',
+      'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&q=80',
+    ],
+    activities: [
+      { id: 'sadap-nira', name: 'Sadap Nira Aren', description: 'Belajar teknik sadap nira dari penyadap berpengalaman.', duration: '2 jam' },
+      { id: 'masak-gula', name: 'Masak Gula Aren Tradisional', description: 'Proses pemasakan nira menjadi gula aren di dapur komunal desa.', duration: '3 jam' },
+      { id: 'olah-rebung', name: 'Olah Rebung Fermentasi', description: 'Belajar teknik fermentasi rebung tradisional bersama ibu-ibu desa.', duration: '1,5 jam' },
+      { id: 'tanam-pohon', name: 'Tanam Pohon Pangan', description: 'Menanam bibit pohon pangan di kawasan agroforestri desa.', duration: '1 jam' },
+    ],
+    highlights: ['Pengalaman memasak gula aren', 'Makan siang masakan desa', 'Kunjungan kebun aren', 'Oleh-oleh gula aren (250g)'],
+    capacity: 15,
+    duration: '1 hari (6 jam)',
+    price: 130000,
+    guideAvailable: true,
+    isSimulasi: SIMULASI,
+  },
+  {
+    id: 'sumber-urip',
+    name: 'Desa Sumber Urip',
+    desa: 'Sumber Urip',
+    kabupaten: 'Rejang Lebong',
+    description: 'Desa agroforestri kopi-aren-sayuran dengan program konservasi bambu dan pangan lokal aktif.',
+    longDescription: 'Sumber Urip adalah desa dengan sistem agroforestri yang beragam: kopi robusta, aren, bambu, sayuran dataran tinggi, dan tanaman herbal tumbuh berdampingan. Desa ini aktif dalam program konservasi bambu dan pengembangan produk olahan rebung. Pengunjung dapat merasakan pengalaman lengkap agroforestri multistrata yang produktif.',
+    image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80',
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80',
+      'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
+    ],
+    activities: [
+      { id: 'kebun-tour', name: 'Tur Kebun Agroforestri', description: 'Jelajahi kebun multistrata yang mengintegrasikan kopi, aren, dan tanaman pangan.', duration: '2 jam' },
+      { id: 'olah-rebung', name: 'Workshop Olah Rebung', description: 'Belajar berbagai olahan rebung: fermentasi, keripik, dan sayur rebung.', duration: '2,5 jam' },
+      { id: 'petik-kopi', name: 'Petik Kopi Robusta', description: 'Pengalaman memetik kopi robusta di kebun warga.', duration: '1,5 jam' },
+      { id: 'homestay', name: 'Menginap di Rumah Warga', description: 'Menginap satu malam di rumah warga dan merasakan kehidupan desa.', duration: '1 malam' },
+    ],
+    highlights: ['Tur agroforestri lengkap', 'Workshop olahan rebung', 'Pilihan menginap (homestay)', 'Sarapan dan makan siang'],
+    capacity: 18,
+    duration: '1–2 hari',
+    price: 175000,
+    guideAvailable: true,
+    isSimulasi: SIMULASI,
+  },
+  {
+    id: 'ai-sempiang',
+    name: 'Desa Ai Sempiang',
+    desa: 'Ai Sempiang',
+    kabupaten: 'Kepahiang',
+    description: 'Desa dengan potensi pengamatan terbatas habitat Rafflesia arnoldii di tepi kawasan hutan lindung.',
+    longDescription: 'Ai Sempiang terletak berbatasan dengan kawasan hutan lindung yang menjadi habitat Rafflesia arnoldii — bunga terbesar di dunia. Desa ini mengembangkan program pengamatan Rafflesia yang bertanggung jawab dengan kuota ketat dan pemandu terlatih. Selain Rafflesia, pengunjung dapat menikmati kebun kopi dan gula semut aren yang menjadi komoditas unggulan desa.',
+    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&q=80',
+      'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80',
+      'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
+    ],
+    activities: [
+      { id: 'rafflesia', name: 'Pengamatan Habitat Rafflesia (Terbatas)', description: 'Pengamatan terbatas habitat Rafflesia arnoldii dengan pemandu terlatih. Hanya saat mekar. Kuota 5 orang/hari.', duration: '2 jam' },
+      { id: 'petik-kopi', name: 'Petik Kopi Arabika', description: 'Memetik kopi arabika di kebun agroforestri pinggir hutan.', duration: '1,5 jam' },
+      { id: 'gula-semut', name: 'Proses Gula Semut Aren', description: 'Melihat dan mencoba proses kristalisasi gula semut aren.', duration: '1 jam' },
+      { id: 'tanam-pohon', name: 'Tanam Pohon Inang Rafflesia', description: 'Berkontribusi menanam Tetrastigma sp. sebagai inang Rafflesia.', duration: '1 jam' },
+    ],
+    highlights: ['Pengamatan Rafflesia (musiman, terbatas)', 'Kuota harian ketat: 10 orang', 'Pemandu konservasi terlatih', 'Kontribusi konservasi tercatat'],
+    capacity: 10,
+    duration: '1 hari (5 jam)',
+    price: 200000,
+    guideAvailable: true,
+    isSimulasi: SIMULASI,
+  },
+];
+
+export const getDestinationById = (id: string): Destination | undefined =>
+  destinations.find(d => d.id === id);
