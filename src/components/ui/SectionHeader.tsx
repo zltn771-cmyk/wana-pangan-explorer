@@ -1,18 +1,18 @@
 import React from 'react';
 
 export interface SectionHeaderProps {
-  /** Teks pill kecil di atas judul, misal: "Ekosistem" */
   tag?: string;
+  tagIcon?: React.ReactNode;
   title: string;
   subtitle?: string;
   align?: 'left' | 'center';
-  /** Gunakan warna terang untuk latar belakang gelap */
   light?: boolean;
   className?: string;
 }
 
 export function SectionHeader({
   tag,
+  tagIcon,
   title,
   subtitle,
   align = 'left',
@@ -35,16 +35,17 @@ export function SectionHeader({
       {tag && (
         <span
           className={[
-            'inline-flex items-center',
-            'rounded-full px-3 py-1',
-            'text-xs font-semibold tracking-wide uppercase',
+            'inline-flex items-center gap-1.5',
+            'rounded-full px-4 py-1.5',
+            'text-[11px] font-bold tracking-widest uppercase',
             light
-              ? 'bg-white/20 text-white border border-white/30'
-              : 'bg-[#174B35]/10 text-[#174B35] border border-[#174B35]/20',
+              ? 'bg-white/15 text-white border border-white/25'
+              : 'bg-[#1a5c3a]/8 text-[#1a5c3a] border border-[#1a5c3a]/18',
           ]
             .filter(Boolean)
             .join(' ')}
         >
+          {tagIcon}
           {tag}
         </span>
       )}
@@ -52,8 +53,8 @@ export function SectionHeader({
       {/* Title */}
       <h2
         className={[
-          'text-3xl md:text-4xl font-bold leading-tight tracking-tight',
-          light ? 'text-white' : 'text-[#174B35]',
+          'text-3xl md:text-4xl font-bold leading-tight tracking-tight font-display',
+          light ? 'text-white' : 'text-[#1a5c3a]',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -65,9 +66,9 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={[
-            'text-lg leading-relaxed',
+            'text-base md:text-lg leading-relaxed',
             isCenter ? 'max-w-2xl mx-auto' : 'max-w-2xl',
-            light ? 'text-white/80' : 'text-gray-600',
+            light ? 'text-white/75' : 'text-slate-600',
           ]
             .filter(Boolean)
             .join(' ')}

@@ -14,27 +14,27 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#174B35] text-white hover:bg-[#0D3024] active:bg-[#0D3024] disabled:bg-[#174B35]/50',
+    'bg-gradient-to-r from-[#1a5c3a] to-[#1e6b42] text-white shadow-md shadow-[#1a5c3a]/20 hover:shadow-[#1a5c3a]/40 hover:brightness-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed',
   secondary:
-    'bg-[#F3EFE4] text-[#174B35] hover:bg-[#8FAF91]/20 active:bg-[#8FAF91]/30 disabled:bg-[#F3EFE4]/50',
+    'bg-[#f7f3eb] text-[#1a5c3a] border border-[#90c490]/40 hover:bg-[#90c490]/15 hover:border-[#90c490]/60 active:scale-95 disabled:opacity-50',
   outline:
-    'border-2 border-[#174B35] text-[#174B35] bg-transparent hover:bg-[#174B35] hover:text-white active:bg-[#0D3024] active:text-white disabled:border-[#174B35]/40 disabled:text-[#174B35]/40 disabled:hover:bg-transparent disabled:hover:text-[#174B35]/40',
+    'border-2 border-[#1a5c3a] text-[#1a5c3a] bg-transparent hover:bg-[#1a5c3a] hover:text-white active:scale-95 disabled:border-[#1a5c3a]/40 disabled:text-[#1a5c3a]/40 disabled:hover:bg-transparent disabled:cursor-not-allowed',
   ghost:
-    'text-[#174B35] bg-transparent hover:bg-[#174B35]/10 active:bg-[#174B35]/20 disabled:text-[#174B35]/40',
+    'text-[#1a5c3a] bg-transparent hover:bg-[#1a5c3a]/8 active:bg-[#1a5c3a]/15 active:scale-95 disabled:text-[#1a5c3a]/40 disabled:cursor-not-allowed',
   danger:
-    'bg-red-600 text-white hover:bg-red-700 active:bg-red-800 disabled:bg-red-600/50',
+    'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-md shadow-red-600/20 hover:brightness-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'px-4 py-2 text-sm gap-1.5',
-  md: 'px-6 py-3 text-base gap-2',
-  lg: 'px-8 py-4 text-lg gap-2.5',
+  sm: 'px-4 py-2 text-sm gap-1.5 rounded-xl',
+  md: 'px-6 py-2.5 text-sm gap-2 rounded-xl',
+  lg: 'px-8 py-3.5 text-base gap-2.5 rounded-2xl',
 };
 
 const iconSizeClasses: Record<ButtonSize, string> = {
   sm: 'w-4 h-4',
-  md: 'w-5 h-5',
-  lg: 'w-6 h-6',
+  md: 'w-4 h-4',
+  lg: 'w-5 h-5',
 };
 
 function Spinner({ size }: { size: ButtonSize }) {
@@ -46,19 +46,8 @@ function Spinner({ size }: { size: ButtonSize }) {
       viewBox="0 0 24 24"
       aria-hidden="true"
     >
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      />
-      <path
-        className="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-      />
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
     </svg>
   );
 }
@@ -86,25 +75,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled}
         aria-busy={loading}
         className={[
-          // Base styles
           'inline-flex items-center justify-center',
-          'rounded-[12px] font-semibold',
-          'transition-all duration-200',
-          'focus:outline-none focus:ring-2 focus:ring-[#174B35]/40',
+          'font-semibold transition-all duration-200',
+          'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a5c3a]/50 focus-visible:ring-offset-2',
           'select-none cursor-pointer',
-          'disabled:cursor-not-allowed',
-          // Variant
           variantClasses[variant],
-          // Size (includes gap)
           sizeClasses[size],
-          // Custom
           className,
         ]
           .filter(Boolean)
           .join(' ')}
         {...rest}
       >
-        {/* Left icon or spinner */}
         {loading ? (
           <Spinner size={size} />
         ) : leftIcon ? (
@@ -113,10 +95,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </span>
         ) : null}
 
-        {/* Label */}
         {children && <span>{children}</span>}
 
-        {/* Right icon (hidden during loading) */}
         {!loading && rightIcon ? (
           <span className={`shrink-0 ${iconSizeClasses[size]} flex items-center justify-center`}>
             {rightIcon}

@@ -1,106 +1,111 @@
 import { Link } from 'react-router-dom';
-import { MapPin, ArrowRight, TreePine, Users } from 'lucide-react';
-import { SectionHeader, Badge, Button } from '@/components/ui';
+import { MapPin, ArrowRight, TreePine, Users, Mountain } from 'lucide-react';
 import { destinations } from '@/data/destinations';
 
 export function VillageCandidatesSection() {
   return (
-    <section className="section-padding bg-white relative">
-      <div className="container-base">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <SectionHeader
-            tag="Desa Kandidat Pengembangan"
-            title="Potensi Agroforestri Dataran Tinggi Bengkulu"
-            subtitle="Mengeksplorasi bentang alam, keragaman vegetasi kebun hutan, dan kearifan masyarakat lokal di Kabupaten Kepahiang dan Rejang Lebong."
-          />
-          <div className="shrink-0">
-            <Link to="/wisata">
-              <Button variant="outline" size="sm" rightIcon={<ArrowRight size={16} />}>
-                Lihat Seluruh Destinasi
-              </Button>
-            </Link>
+    <section className="section-padding bg-white relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-nature-dots opacity-40" />
+      <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-sage/10 blur-3xl" />
+
+      <div className="container-base relative">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 animate-fade-in-up">
+          <div>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-[11px] font-bold text-emerald-800 uppercase tracking-widest mb-4">
+              <Mountain size={12} />
+              Desa Kandidat Pengembangan
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-forest mb-3 leading-tight">
+              Potensi Agroforestri
+              <br />
+              <span className="gradient-text-green">Dataran Tinggi Bengkulu</span>
+            </h2>
+            <p className="text-slate-600 max-w-lg text-sm md:text-base leading-relaxed">
+              Mengeksplorasi bentang alam, keragaman vegetasi kebun hutan, dan kearifan masyarakat lokal di Kabupaten Kepahiang dan Rejang Lebong.
+            </p>
           </div>
+          <Link
+            to="/wisata"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-forest text-forest font-bold text-sm hover:bg-forest hover:text-white transition-all"
+          >
+            Lihat Seluruh Destinasi
+            <ArrowRight size={15} />
+          </Link>
         </div>
 
-        {/* Disclaimer Note */}
-        <div className="mb-8 p-3.5 bg-amber-50/70 border border-amber-200/80 rounded-xl flex items-center gap-2.5 text-xs text-amber-900">
-          <span className="font-semibold px-2 py-0.5 rounded-full bg-amber-200 text-amber-900 text-[10px] uppercase tracking-wide shrink-0">
-            Catatan Status
+        {/* Disclaimer */}
+        <div className="mb-8 flex items-start gap-3 p-4 rounded-2xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 animate-fade-in">
+          <span className="shrink-0 mt-0.5 px-2.5 py-1 rounded-full bg-amber-200 text-amber-900 text-[10px] font-black uppercase tracking-wider">
+            Catatan
           </span>
-          <p>
-            Desa-desa di bawah ini merupakan <strong>desa kandidat potensi pengembangan</strong>{' '}
-            berdasarkan kajian esai agroforestri dataran tinggi Bengkulu, bukan mitra resmi terikat secara kelembagaan.
+          <p className="leading-relaxed">
+            Desa-desa ini merupakan <strong>kandidat potensi pengembangan</strong> berdasarkan kajian agroforestri dataran tinggi Bengkulu, bukan mitra resmi terikat secara kelembagaan.
           </p>
         </div>
 
-        {/* Destination Cards Grid */}
+        {/* Village Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {destinations.map((village) => (
+          {destinations.map((village, i) => (
             <div
               key={village.id}
-              className="group flex flex-col justify-between bg-beige/40 rounded-2xl overflow-hidden border border-sage/20 hover:border-forest/40 hover:shadow-lg transition-all duration-300"
+              className="group card-nature flex flex-col overflow-hidden animate-fade-in-up"
+              style={{ animationDelay: `${i * 0.1}s` }}
             >
-              {/* Image & Badges */}
-              <div className="relative h-48 w-full overflow-hidden">
+              {/* Image */}
+              <div className="relative h-52 overflow-hidden img-zoom">
                 <img
                   src={village.image}
                   alt={`Potensi agroforestri ${village.name}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
                       'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&q=80';
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                
-                {/* Location Badge on Top */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                {/* Location badge */}
                 <div className="absolute top-3 left-3">
-                  <Badge variant="forest" size="sm" className="bg-deep/80 text-white backdrop-blur-xs border-white/20">
-                    <MapPin size={12} className="inline mr-1 text-sage" />
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-sm text-white text-[10px] font-bold border border-white/20">
+                    <MapPin size={9} className="text-sage" />
                     Kab. {village.kabupaten}
-                  </Badge>
+                  </span>
                 </div>
 
-                {/* Village Title on Image */}
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <h3 className="font-bold text-lg leading-tight drop-shadow-xs">{village.name}</h3>
+                {/* Village name overlay */}
+                <div className="absolute bottom-3 left-3 right-3">
+                  <h3 className="font-extrabold text-lg text-white leading-tight drop-shadow-lg">
+                    {village.name}
+                  </h3>
                 </div>
               </div>
 
-              {/* Card Body */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <p className="text-xs text-ink-light/80 line-clamp-3 mb-4 leading-relaxed">
-                    {village.description}
-                  </p>
+              {/* Body */}
+              <div className="p-5 flex-1 flex flex-col">
+                <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed flex-1">
+                  {village.description}
+                </p>
 
-                  {/* Highlights / Activities list */}
-                  <div className="space-y-1.5 mb-5 pt-3 border-t border-slate-200/60">
-                    <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                      <TreePine size={14} className="text-forest shrink-0" />
-                      <span className="truncate">{village.activities[0]?.name || 'Agroforestri Kebun Hutan'}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                      <Users size={14} className="text-forest shrink-0" />
-                      <span>Kapasitas {village.capacity} orang/hari (simulasi)</span>
-                    </div>
+                <div className="space-y-2 mb-5 pt-3 border-t border-slate-100">
+                  <div className="flex items-center gap-2 text-xs text-slate-700">
+                    <TreePine size={13} className="text-forest shrink-0" />
+                    <span className="truncate font-medium">{village.activities[0]?.name || 'Agroforestri Kebun Hutan'}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-slate-500">
+                    <Users size={13} className="text-forest/60 shrink-0" />
+                    <span>Kapasitas {village.capacity} orang/hari (simulasi)</span>
                   </div>
                 </div>
 
-                {/* Footer Link Button */}
-                <div className="pt-2">
-                  <Link to="/wisata" className="block">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full text-xs font-semibold justify-center group-hover:bg-forest group-hover:text-white transition-all"
-                      rightIcon={<ArrowRight size={14} />}
-                    >
-                      Jelajahi Potensi Desa
-                    </Button>
-                  </Link>
-                </div>
+                <Link
+                  to="/wisata"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl border-2 border-forest/20 text-forest text-xs font-bold hover:bg-forest hover:text-white hover:border-forest group/btn transition-all duration-250"
+                >
+                  Jelajahi Potensi Desa
+                  <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
           ))}

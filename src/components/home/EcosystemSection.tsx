@@ -1,182 +1,176 @@
 import { Link } from 'react-router-dom';
-import { Compass, ShoppingBag, ShieldCheck, Landmark, ArrowRight } from 'lucide-react';
-import { SectionHeader, Card } from '@/components/ui';
+import { Compass, ShoppingBag, ShieldCheck, Landmark, ArrowRight, Sparkles } from 'lucide-react';
 
-interface EcosystemElement {
-  id: string;
-  title: string;
-  tagline: string;
-  description: string;
-  icon: typeof Compass;
-  link: string;
-  linkText: string;
-  colorScheme: {
-    iconBg: string;
-    iconColor: string;
-    badgeBg: string;
-    badgeText: string;
-    borderHover: string;
-  };
-}
-
-const ECOSYSTEM_ELEMENTS: EcosystemElement[] = [
+const ECOSYSTEM_ELEMENTS = [
   {
     id: 'wisata',
     title: 'Wisata Kebun Hutan',
     tagline: 'Forest Agroecotourism',
     description:
-      'Aktivitas wisata berbasis agroforestri yang menyajikan pengalaman petik kopi, menyadap nira aren, mengenali tanaman hutan, dan edukasi lingkungan hidup langsung bersama petani lokal.',
+      'Aktivitas wisata berbasis agroforestri — petik kopi, menyadap nira aren, mengenali tanaman hutan, dan edukasi lingkungan bersama petani lokal.',
     icon: Compass,
     link: '/wisata',
     linkText: 'Jelajahi Paket Wisata',
-    colorScheme: {
-      iconBg: 'bg-emerald-100',
-      iconColor: 'text-forest',
-      badgeBg: 'bg-emerald-50 border-emerald-200',
-      badgeText: 'text-forest',
-      borderHover: 'hover:border-forest',
-    },
+    gradient: 'from-emerald-500 to-forest',
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-200/60',
+    hoverBorder: 'hover:border-emerald-400',
+    iconBg: 'bg-gradient-to-br from-emerald-400 to-forest',
+    tag: { bg: 'bg-emerald-100', text: 'text-emerald-800', border: 'border-emerald-200' },
+    number: '01',
   },
   {
     id: 'pangan',
     title: 'Pangan Lokal Bernilai Tambah',
     tagline: 'Local Food Products',
     description:
-      'Pengolahan dan hilirisasi 4 komoditas unggulan agroforestri Bengkulu — Kopi Robusta Bengkulu, Gula Aren cetak dan semut, olahan Rebung bambu, serta Kolang-kaling buah aren — untuk meningkatkan nilai tambah ekonomi masyarakat desa.',
+      'Hilirisasi 4 komoditas unggulan Bengkulu — Kopi Robusta, Gula Aren, olahan Rebung, dan Kolang-kaling — untuk nilai tambah ekonomi masyarakat desa hutan.',
     icon: ShoppingBag,
     link: '/produk',
     linkText: 'Lihat Katalog Produk',
-    colorScheme: {
-      iconBg: 'bg-amber-100',
-      iconColor: 'text-amber-800',
-      badgeBg: 'bg-amber-50 border-amber-200',
-      badgeText: 'text-amber-800',
-      borderHover: 'hover:border-amber-600',
-    },
+    gradient: 'from-amber-500 to-orange-600',
+    bg: 'bg-amber-50',
+    border: 'border-amber-200/60',
+    hoverBorder: 'hover:border-amber-400',
+    iconBg: 'bg-gradient-to-br from-amber-400 to-orange-500',
+    tag: { bg: 'bg-amber-100', text: 'text-amber-800', border: 'border-amber-200' },
+    number: '02',
   },
   {
     id: 'konservasi',
     title: 'Jasa Lingkungan & Konservasi',
     tagline: 'Environmental Services',
     description:
-      'Kontribusi nyata pelestarian ekosistem melalui penanaman pohon pangan multi-manfaat, patroli mandiri hutan oleh warga, perlindungan sumber air bersih, dan pemulihan inang bunga Rafflesia arnoldii.',
+      'Pelestarian ekosistem melalui penanaman pohon pangan, patroli hutan, perlindungan sumber air, dan pemulihan inang bunga Rafflesia arnoldii.',
     icon: ShieldCheck,
     link: '/konservasi',
-    linkText: 'Pelajari Program Konservasi',
-    colorScheme: {
-      iconBg: 'bg-teal-100',
-      iconColor: 'text-teal-800',
-      badgeBg: 'bg-teal-50 border-teal-200',
-      badgeText: 'text-teal-800',
-      borderHover: 'hover:border-teal-600',
-    },
+    linkText: 'Program Konservasi',
+    gradient: 'from-teal-500 to-cyan-600',
+    bg: 'bg-teal-50',
+    border: 'border-teal-200/60',
+    hoverBorder: 'hover:border-teal-400',
+    iconBg: 'bg-gradient-to-br from-teal-400 to-cyan-500',
+    tag: { bg: 'bg-teal-100', text: 'text-teal-800', border: 'border-teal-200' },
+    number: '03',
   },
   {
     id: 'lumbung',
     title: 'Lumbung Wana',
     tagline: 'Community Food Reserve',
     description:
-      'Mekanisme pengelolaan cadangan pangan desa dan alokasi dana darurat dari perputaran ekonomi ecopreneurship, mewujudkan transparansi tata kelola demi ketahanan pangan saat paceklik atau gagal panen.',
+      'Cadangan pangan desa dan alokasi dana darurat dari perputaran ecopreneurship — mewujudkan transparansi ketahanan pangan saat paceklik.',
     icon: Landmark,
     link: '/lumbung',
-    linkText: 'Buka Dashboard Lumbung',
-    colorScheme: {
-      iconBg: 'bg-stone-200',
-      iconColor: 'text-stone-800',
-      badgeBg: 'bg-stone-100 border-stone-300',
-      badgeText: 'text-stone-800',
-      borderHover: 'hover:border-stone-600',
-    },
+    linkText: 'Dashboard Lumbung',
+    gradient: 'from-stone-500 to-stone-700',
+    bg: 'bg-stone-50',
+    border: 'border-stone-200/60',
+    hoverBorder: 'hover:border-stone-400',
+    iconBg: 'bg-gradient-to-br from-stone-400 to-stone-600',
+    tag: { bg: 'bg-stone-100', text: 'text-stone-700', border: 'border-stone-300' },
+    number: '04',
   },
 ];
 
 export function EcosystemSection() {
   return (
-    <section id="ekosistem" className="section-padding bg-beige relative">
-      <div className="container-base">
-        {/* Section Title Header */}
-        <SectionHeader
-          tag="Empat Pilar Ecopreneurship"
-          title="Ekosistem yang Menghidupkan Potensi Desa Hutan"
-          subtitle="Wana Pangan merajut harmoni antara penciptaan nilai ekonomi bagi masyarakat desa dan komitmen konservasi hutan dataran tinggi Bengkulu."
-          align="center"
-          className="mb-14"
-        />
+    <section id="ekosistem" className="section-padding bg-beige relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-nature-dots opacity-60" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-sage/8 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-forest/6 blur-3xl" />
 
-        {/* 4 Pillars Interactive Grid */}
+      <div className="container-base relative">
+        {/* Section Header */}
+        <div className="text-center mb-16 animate-fade-in-up">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-forest/8 border border-forest/15 text-[11px] font-bold text-forest uppercase tracking-widest mb-5">
+            <Sparkles size={12} />
+            Empat Pilar Ecopreneurship
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-forest mb-5 leading-tight">
+            Ekosistem yang Menghidupkan
+            <br className="hidden md:inline" />
+            <span className="gradient-text-green"> Potensi Desa Hutan</span>
+          </h2>
+          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Wana Pangan merajut harmoni antara penciptaan nilai ekonomi masyarakat
+            dan komitmen konservasi hutan dataran tinggi Bengkulu.
+          </p>
+        </div>
+
+        {/* 4 Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {ECOSYSTEM_ELEMENTS.map((elem, idx) => {
             const Icon = elem.icon;
             return (
-              <Card
+              <div
                 key={elem.id}
-                variant="default"
-                padding="lg"
-                hover
-                className={`flex flex-col justify-between transition-all duration-300 border-2 border-transparent ${elem.colorScheme.borderHover} shadow-sm`}
+                className={`group card-nature border-2 ${elem.border} ${elem.hoverBorder} flex flex-col justify-between p-6 animate-fade-in-up`}
+                style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 <div>
-                  {/* Top Header Pill & Number */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold border ${elem.colorScheme.badgeBg} ${elem.colorScheme.badgeText}`}
-                    >
-                      Pilar 0{idx + 1}
+                  {/* Top row */}
+                  <div className="flex items-center justify-between mb-5">
+                    <span className={`text-[10px] font-black tracking-widest uppercase ${elem.tag.text}`}>
+                      Pilar {elem.number}
                     </span>
-                    <span className="text-xs font-semibold text-ink-light/60 tracking-wider">
+                    <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold border ${elem.tag.bg} ${elem.tag.text} ${elem.tag.border}`}>
                       {elem.tagline}
                     </span>
                   </div>
 
-                  {/* Icon Circle */}
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${elem.colorScheme.iconBg} ${elem.colorScheme.iconColor} shadow-xs`}
-                  >
-                    <Icon size={28} strokeWidth={2} />
+                  {/* Icon */}
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${elem.iconBg} shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-400`}>
+                    <Icon size={26} className="text-white" strokeWidth={2} />
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-bold text-forest mb-3 leading-snug">{elem.title}</h3>
-                  <p className="text-sm text-ink-light/80 leading-relaxed mb-6">
+                  {/* Title */}
+                  <h3 className="text-lg font-extrabold text-forest mb-3 leading-snug group-hover:text-forest-mid transition-colors">
+                    {elem.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-slate-600 leading-relaxed mb-5">
                     {elem.description}
                   </p>
                 </div>
 
-                {/* Action Link */}
-                <div className="pt-4 border-t border-slate-100">
+                {/* CTA */}
+                <div className="pt-4 border-t border-slate-100/80">
                   <Link
                     to={elem.link}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-deep group transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-forest hover:text-forest-mid group/link transition-colors"
                   >
                     <span>{elem.linkText}</span>
-                    <ArrowRight
-                      size={16}
-                      className="transition-transform group-hover:translate-x-1"
-                    />
+                    <ArrowRight size={15} className="transition-transform group-hover/link:translate-x-1.5" />
                   </Link>
                 </div>
-              </Card>
+              </div>
             );
           })}
         </div>
 
-        {/* Ecosystem Synergy Callout Banner */}
-        <div className="mt-12 p-6 md:p-8 rounded-2xl bg-white border border-sage/30 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center md:text-left">
-            <h4 className="text-base md:text-lg font-bold text-forest">
-              Mekanisme yang Berkelanjutan & Terintegrasi
-            </h4>
-            <p className="text-xs md:text-sm text-ink-light/80 max-w-2xl">
-              Setiap pembelian produk pangan lokal dan partisipasi paket wisata menyisihkan kontribusi
-              terpisah untuk dana konservasi pohon pangan dan cadangan Lumbung Wana masyarakat desa.
-            </p>
+        {/* Synergy Banner */}
+        <div className="mt-12 rounded-3xl overflow-hidden">
+          <div className="bg-gradient-to-r from-forest via-forest-mid to-forest p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 relative">
+            {/* Background dots */}
+            <div className="absolute inset-0 bg-nature-dots opacity-20" />
+            <div className="relative text-center md:text-left">
+              <h4 className="text-lg md:text-xl font-extrabold text-white mb-2">
+                Mekanisme yang Berkelanjutan & Terintegrasi
+              </h4>
+              <p className="text-sm text-sage-light/85 max-w-xl leading-relaxed">
+                Setiap pembelian produk dan partisipasi wisata menyisihkan kontribusi untuk
+                dana konservasi dan cadangan Lumbung Wana masyarakat — terpisah dan transparan.
+              </p>
+            </div>
+            <Link to="/lumbung" className="relative shrink-0">
+              <span className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-white text-forest font-bold text-sm shadow-xl hover:bg-beige transition-all duration-300 hover:scale-105">
+                Pelajari Alur Lumbung
+                <ArrowRight size={16} />
+              </span>
+            </Link>
           </div>
-          <Link to="/lumbung" className="shrink-0">
-            <span className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold px-5 py-2.5 rounded-xl bg-forest text-white hover:bg-deep transition-colors shadow-xs">
-              Pelajari Alur Lumbung
-              <ArrowRight size={16} />
-            </span>
-          </Link>
         </div>
       </div>
     </section>
